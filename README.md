@@ -4,7 +4,7 @@ This repository contains my notes as I learnt about [Dat](https://datproject.org
 
 ## My goals
 - [ ] **WIP** To understand how Dat works and the benefit it brings over sharing research data via online repositories on the web (with DOIs pointing to landing pages via HTTP)
-- [x] To learn how to use Dat ![Try-dat:success badge](https://img.shields.io/badge/Try--dat-success-green.svg) [Notes](https://github.com/npscience/Learning-Dat-and-Beaker/blob/npscience-initial/dat-tutorial-notes/Try-dat.md)
+- [x] To learn how to use Dat ![Try-dat:success badge](https://img.shields.io/badge/Try--dat-success-green.svg) [Notes](/Try-dat.md)
 - [ ] To learn how Beaker works and its benefits
 - [ ] To learn how to create a blogsite on Beaker
 - [ ] Create my blogsite on Beaker!
