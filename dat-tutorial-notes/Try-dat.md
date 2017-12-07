@@ -221,7 +221,7 @@ dat share --http=$PORT_80
 
 This will return a http://localhost:XXXXX address indicating we are hosting the file locally. But the tutorial is running in Docker, so actually we need to point people to the docker container, and that address is in welcome.txt. Typing that address into your browser, you should see your basic index page, rendered from HTML.
 
-![My website served over HTTP](dat-tutorial-screenshots/dat-tutorial-website-HTTP.png)
+![My website served over HTTP](~/img/dat-tutorial-website-HTTP.png)
 
 > :exclamation:**User note**
 > *I tried to use the localhost:... address given in the response to the http serving call; error: the localhost is refusing to connect.
