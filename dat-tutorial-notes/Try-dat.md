@@ -39,10 +39,8 @@ Time taken, including documentation and also doing some research on file transfe
 Node and npm were installed to the path /usr/local/bin
 In order to be able to call these packages from the terminal, I needed to check /usr/local/bin was in my computer's PATH:
 
-Open Terminal in Mac.
-type
-`` echo $PATH
-``
+Open Terminal in Mac. Type
+`echo $PATH`
 returns
 ``/Users/.../...:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:...
 ``
