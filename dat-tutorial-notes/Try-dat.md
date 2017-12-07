@@ -146,11 +146,8 @@ Sharing dat: [X] files ([X] MB)
 
 The dat://.... address is now your link to share with anyone you want to provide access to your files. It's unique, secret and secure. So you can share with only the people you want to.
 
-----
-:exclamation:**User note**
-*In the tutorial, running this command in the virtual terminal (top-right) is supposed to create a .dat folder in the virtual directory (bottom-right hand side), but it doesn't show immediately. Refreshing the page takes me back to the start but now the .dat directory is there.*
-**Note close**
-----
+>:exclamation:**User note**
+> *In the tutorial, running this command in the virtual terminal (top-right) is supposed to create a .dat folder in the virtual directory (bottom-right hand side), but it doesn't show immediately. Refreshing the page takes me back to the start but now the .dat directory is there.*
 
 Create a new directory in the machine I want to share the files too (for the tutorial, that's my local machine).
 
