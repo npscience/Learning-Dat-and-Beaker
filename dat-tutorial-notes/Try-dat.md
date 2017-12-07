@@ -42,8 +42,7 @@ In order to be able to call these packages from the terminal, I needed to check 
 Open Terminal in Mac. Type
 `echo $PATH`
 returns
-``/Users/.../...:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:...
-``
+`/Users/.../...:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:...`
 *(Some paths obscured)*
 
 As you can see, there is a list of paths each separated by : and /usr/local/bin is there. So we're all good. I can call node and npm from the terminal.
@@ -51,20 +50,17 @@ As you can see, there is a list of paths each separated by : and /usr/local/bin 
 Instructions [here](https://coolestguidesontheplanet.com/add-shell-path-osx/) for checking the PATH and adding a new path to it.
 
 Check that node and npm are installed:
-```node -v
-```
-and
-```npm -v
-```
-returns the version number of the package installed. Hey presto!
+`node -v` and `npm -v` returns the version number of the package installed. Hey presto!
 *I have Node v8.9.2 and npm v5.5.1*
 
 2. Use npm to install dat
 
-```npm install -g dat
+```
+npm install -g dat
 ```
 ...
-```Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
+```
+Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
 ```
 
 Oops! I don't have write access. Instead, I need to run the command as a superuser with admin privileges, which requires using ```sudo```
