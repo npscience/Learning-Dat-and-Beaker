@@ -350,12 +350,13 @@ In /Dat-tutorial directory, create a new .csv and open it
 ```
 touch testdata.csv && open testdata.csv
 ```
-Add columns{ID,Measure1,Measure2}
-Add fake entries
-    ID:{1:5}
-    Measure1:{RANDBETWEEN(0,9.9)}
-    Measure2:{RANDBETWEEN(20,50)}
-Save
+
+* Add columns{ID,Measure1,Measure2}
+* Add fake entries
+  * ID:{1:5}
+  * Measure1:{RANDBETWEEN(0,9.9)}
+  * Measure2:{RANDBETWEEN(20,50)}
+* Save
 
 Now to turn my current directory into a dat folder:
 ```
@@ -493,7 +494,7 @@ Now... MUSIC BREAK :dancer: and share this documentation :ledger:
 > :exclamation: **User note for Bruno**
 > *I got some errors/warnings when installing bionode:*
 
-> ```
+```
 npm WARN saveError ENOENT: no such file or directory, open '/Users/naomipenfold/Dat-tutorial/influenza/package.json'
 npm notice created a lockfile as package-lock.json. You should commit this file.
 npm WARN enoent ENOENT: no such file or directory, open '/Users/naomipenfold/Dat-tutorial/influenza/package.json'
