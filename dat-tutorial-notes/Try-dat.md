@@ -183,27 +183,11 @@ In the original location, run `dat share` to update the hash
 
 In the location shared to, navigate to the directory containing the dat directory (/Dat-tutorial) and run `dat sync`
 
-----
-:exclamation:**User note**
-*Problem! I get an error: No existing archive in this directory.
+> :exclamation:**User note**
+> *Problem! I get an error: No existing archive in this directory.
 I am in /Dat-tutorial and I can see a directory with the dat hash in it.*
-
-```
-Dat doctor
-```
-*That doesn't shed any light. Note: to stop this command on Mac, use ctrl+c.
-
-Need outside help, can't work this out
-
-OH! worked it out. I need to be in the dat directory inside my directory location, i.e.*
-
-```
-cd ~/Dat-tutorial/[long hash]
-dat sync
-```
-*...that works.*
-**Note close**
-----
+> `Dat doctor` *doesn't shed any light. Note: to stop this command on Mac, use ctrl+c. I need outside help, can't work this out...
+> OH! I worked it out. I need to be in the dat directory inside my directory location, i.e. `cd ~/Dat-tutorial/[long hash] && dat sync`...that works.*
 
 Check the file change I made in the original machine is replicated across:
 
@@ -239,20 +223,14 @@ This will return a http://localhost:XXXXX address indicating we are hosting the 
 
 ![My website served over HTTP](https://github.com/npscience/Learning-Dat-and-Beaker/tree/npscience-initial/dat-tutorial-screenshots/dat-tutorial-website-HTTP.png)
 
-----
-:exclamation:**User note**
-*I tried to use the localhost:... address given in the response to the http serving call; error: the localhost is refusing to connect.
-OH! The address I'm serving to is actually listed in the welcome.txt file — it's the http://docker.try-dat.com:XXXXX link.
+> :exclamation:**User note**
+> *I tried to use the localhost:... address given in the response to the http serving call; error: the localhost is refusing to connect.
+> OH! The address I'm serving to is actually listed in the welcome.txt file — it's the http://docker.try-dat.com:XXXXX link.
+> BONUS: And I can edit index.html on the fly, in the terminal I can see the log of changes (Dat is watching) and if I refresh the page in the browser, I can see the edited page!
+> Note I also tried this via local machine but got this error:*
+> `Archive not writable, cannot use share. Please use sync to resume download.``
+> *Probably because on my work laptop, my user account does nt have admin privileges.*
 
-And I can edit index.html on the fly, in the terminal I can see the log of changes (Dat is watching) and if I refresh the page in the browser, I can see the edited page!
-
-Note I also tried this via local machine but got this error:*
-```
-Archive not writable, cannot use share. Please use sync to resume download.
-```
-*Probably because on my work laptop, my user account does nt have admin privileges.*
-**Note close**
-----
 
 ### 5. Downloading a partial dataset from Git
 
@@ -293,46 +271,15 @@ open index.html
 ```
 And in the new browser window, we can see that Joe has set us a task. There's text and empty picture boxes — we need to use Dat to download the image files to go in these boxes. Cheeky! :cat:
 
-----
-:exclamation:**User note**
+> :exclamation:**User note**
 *I accidentally downloaded all files not partial files....
-Back in the parent directory (/Dat-tutorial), we can connect to Joe's data files in the git repo using dat:*
-
-```
-dat clone ./dat-git-example
-```
-
-*This downloads 14 files (40MB)
-
-I was meant to just retrieve the metadata using ```dat clone ./dat-git-example --empty```
-but now I can't get this to work. ERROR: TypeError: Cannot read property 'length' of undefined
-
-To try again with --empty and get just the dat metadata, I deleted the 14 files from the directory. But now, the dat log thinks I'm synced, even though I no longer have the 14 files in the directory. I WANT MY CAT PICTURES.
-
-Options: retrieve the trashed files and manually move them back in? Not sure I can do much else and I wanna see those pussycats. No, wait. Delete the whole dat-git-example directory and restart...
-
-
-in /Dat-tutorial*
-```
-git clone https://github.com/joehand/dat-git-example.git
-```
-*Then*
-```
-cd dat-git-example
-```
-*and*
-```
-open index.html
-```
-*to display the page with missing cat pics in my browser. Yup, they're still missing.
-
-Go back up one to parent directory (```cd ..```) and*
-```
-dat clone ./dat-git-example --empty
-```
-*IT WORKED THIS TIME! (Why didn't it last time? Curious...)*
-**Note close**
-----
+Back in the parent directory (/Dat-tutorial), we can connect to Joe's data files in the git repo using dat: `dat clone ./dat-git-example` downloads 14 files (40MB).
+> I was meant to just retrieve the metadata using `dat clone ./dat-git-example --empty` but now I can't get this to work. ERROR: TypeError: Cannot read property 'length' of undefined
+> To try again with --empty and get just the dat metadata, I deleted the 14 files from the directory. But now, the dat log thinks I'm synced, even though I no longer have the 14 files in the directory. I WANT MY CAT PICTURES.
+> Options: retrieve the trashed files and manually move them back in? Not sure I can do much else and I wanna see those pussycats. No, wait. Delete the whole dat-git-example directory and restart...
+> in /Dat-tutorial `git clone https://github.com/joehand/dat-git-example.git` then `cd dat-git-example` and `open index.html` to display the page with missing cat pics in my browser. Yup, they're still missing.
+> Go back up one to parent directory (`cd ..`) and `dat clone ./dat-git-example --empty` ...
+> IT WORKED THIS TIME! (Why didn't it last time? Curious...)*
 
 It returns:
 ```
@@ -381,7 +328,9 @@ Remember the basic webpage we created earlier on (points 4 & 5), well we can ser
 
 [Install Beaker](https://beakerbrowser.com/docs/install/).
 
-The tutorial says I can simply paste my secret dat:// link into Beaker Browser and it should work. But it doesn't. :exclamation:**User note** *Aha, I need to reopen my dat connection!* **Note close**
+The tutorial says I can simply paste my secret dat:// link into Beaker Browser and it should work.
+
+> :exclamation:**User note** *But it doesn't. Aha, I need to reopen my dat connection!*
 
 So in the virtual machine on the tutorial `dat share` to open the connection and then that dat link opens up my basic webpage (index.html) in Beaker.
 
@@ -429,7 +378,6 @@ Ctrl+C to exit at any time
 Title:
 ```
 So I am prompted to add some simple metadata for my testdata.csv...
-
 ```
 Title: Testdata
 Description:  Test data created for the dat tutorial. These are not real data.
@@ -454,13 +402,9 @@ In the virtual machine (tutorial):
 ```
 dat clone dat://...[my secret link]...
 ```
-----
-:exclamation:**User note**
-*Hmmm... it can't find any connections for that link. WAIT, it's because I am in the wrong directory — I'm in /Dat-tutorial not /Dat-tutorial/research-data.
-
-Ok now I navigate to my research-data directory, run ```dat share``` and then in the virtual machine ```dat clone``` and bingo.*
-**Note close**
-----
+> :exclamation:**User note**
+> *Hmmm... it can't find any connections for that link. WAIT, it's because I am in the wrong directory — I'm in /Dat-tutorial not /Dat-tutorial/research-data.
+> Ok now I navigate to my research-data directory, run `dat share` and then in the virtual machine `dat clone` and bingo.*
 
 ```
 Cloning: 2 files (248 B)                                                     
@@ -530,7 +474,7 @@ node script.js
 
 **Not going to do anymore of this for now, moving onto Beaker**
 
-Now, I feel I've earnt my girl Guide Dat badge :hatched_chick:
+Now, I feel I've earnt my Girl Guide Dat badge :hatched_chick:
 
 ![Try-dat:success badge](https://img.shields.io/badge/Try--dat-success-green.svg)
 
@@ -545,11 +489,11 @@ Now, I feel I've earnt my girl Guide Dat badge :hatched_chick:
 Next.... learn more about Beaker and start creating my own blogsite. :clipboard:
 Now... MUSIC BREAK :dancer: and share this documentation :ledger:
 
-----
-**User note for Bruno**
-I got some errors/warnings when installing bionode:
 
-```
+> :exclamation: **User note for Bruno**
+> *I got some errors/warnings when installing bionode:*
+
+> ```
 npm WARN saveError ENOENT: no such file or directory, open '/Users/naomipenfold/Dat-tutorial/influenza/package.json'
 npm notice created a lockfile as package-lock.json. You should commit this file.
 npm WARN enoent ENOENT: no such file or directory, open '/Users/naomipenfold/Dat-tutorial/influenza/package.json'
@@ -558,6 +502,4 @@ npm WARN influenza No repository field.
 npm WARN influenza No README data
 npm WARN influenza No license field.
 ```
-And then when running the suggested script.js, it couldn't find the dat module. Dat is definitely installed so I was a bit stuck as to what to do next, and I stopped there.
-**Note close**
-----
+> *And then when running the suggested script.js, it couldn't find the dat module. Dat is definitely installed so I was a bit stuck as to what to do next, and I stopped there.*
