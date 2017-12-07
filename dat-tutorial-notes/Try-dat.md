@@ -57,33 +57,31 @@ Check that node and npm are installed:
 
 ```
 npm install -g dat
-```
-...
-```
-Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
+> Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
 ```
 
-Oops! I don't have write access. Instead, I need to run the command as a superuser with admin privileges, which requires using ```sudo```
+Oops! I don't have write access. Instead, I need to run the command as a superuser with admin privileges, which requires using `sudo`
 
 *For more about ```sudo```, type ```man sudo``` into the terminal.  (Note: to exit the manual, type ```q```!)*
 
-```sudo npm install -g dat
+```
+sudo npm install -g dat
 ```
 asks me for my admin password, and then BAM, we are go! For the nerds who care, the 347 packages within Dat took 19.487secs to install on my machine. #stats
 
 Checking...
 
-```dat -v
 ```
-returns
-```13.9.2
+dat -v
+> 13.9.2
 ```
 
 *[Note: v stands for version. Checking for the version number of a package gives you the answer you need for whether you have that package installed or not.]*
 
 Ok, so now I have Dat installed. Here's what I can do with it (source: the Dat tutorial):
 
-```$ dat
+```
+$ dat
 
 Usage: dat <cmd> [<dir>] [options]
 
@@ -132,10 +130,14 @@ Let's get started :hatching_chick:
 ### 1. Share files using Dat
 
 In the machine with the files you have to share, enter the terminal and type
-```dat share
+```
+dat share
 ```
 This will return a message like:
-```dat v13.9.0                                                                                                                  
+```
+dat
+
+v13.9.0                                                                                                                  
 Created new dat in /[PATH]/.dat                                                                                                
 dat://[...shhh I'm secret...]                                                       
 Sharing dat: [X] files ([X] MB)
@@ -152,48 +154,45 @@ The dat://.... address is now your link to share with anyone you want to provide
 
 Create a new directory in the machine I want to share the files too (for the tutorial, that's my local machine).
 
-```mkdir Dat-tutorial
 ```
-creates /Dat-tutorial (check it's there using ```ls```)
+mkdir Dat-tutorial
+```
+creates /Dat-tutorial (check it's there using `ls`)
 *Note to anyone new to the command line: in terminal, ```mkdir``` creates a new folder and ```ls``` lists all the directories in my current location*
 
-Jump into //Dat-tutorial using ```cd ~/Dat-tutorial```
+Jump into //Dat-tutorial using `cd ~/Dat-tutorial`
 *And ```cd``` is the command for navigating through your folder system: cd .. takes you up one, cd foldername takes you to that folder if you're in the parent to it.*
 
 Now I'm working inside my new Dat-tutorial directory.
 
 ### 2. Clone a dat directory
 
-In my local machine's terminal
-```dat clone dat://....
-```
-using that long and complicated dat link from the machine with the files I want access to.
+In my local machine's terminal `dat clone dat://....` using that long and complicated dat link from the machine with the files I want access to.
 
 Dat opens a connection, and downloads the directory (with enclosed files) to my machine in the folder I specified (/Dat-tutorial).
-It even states ```Cloning X files (X MB)``` so I can check it's the same as I expect.
+It even states `Cloning X files (X MB)` so I can check it's the same as I expect.
 
-Note: if you are not in the directory you want to add the files to already, you can specify this location at the end of the clone command, e.g.
-```dat clone dat://.... Dat-tutorial
-```
+Note: if you are not in the directory you want to add the files to already, you can specify this location at the end of the clone command, e.g. `dat clone dat://.... Dat-tutorial`
 
-Check that the files are there (```ls```): in /Dat-tutorial I now have a new directory with the name matching the dat hash, and inside that are the two files I was expecting (welcome.txt and cat.png).
+Check that the files are there (`ls`): in /Dat-tutorial I now have a new directory with the name matching the dat hash, and inside that are the two files I was expecting (welcome.txt and cat.png).
 
-To close the dat connection from the original machine (the virtual one in the tuotiral window), ctrl+c in that terminal.
+To close the dat connection from the original machine (the virtual one in the tutorial window), ctrl+c in that terminal.
 
 ### 3. Sync a directory
 
 If a file changes in the original location, you will need to update the file in the location you shared to using sync.
 
-In the original location, run ```dat share``` to update the hash
+In the original location, run `dat share` to update the hash
 
-In the location shared to, navigate to the directory containing the dat directory (/Dat-tutorial) and run ```dat sync```
+In the location shared to, navigate to the directory containing the dat directory (/Dat-tutorial) and run `dat sync`
 
 ----
 :exclamation:**User note**
 *Problem! I get an error: No existing archive in this directory.
 I am in /Dat-tutorial and I can see a directory with the dat hash in it.*
 
-```Dat doctor
+```
+Dat doctor
 ```
 *That doesn't shed any light. Note: to stop this command on Mac, use ctrl+c.
 
@@ -201,16 +200,18 @@ Need outside help, can't work this out
 
 OH! worked it out. I need to be in the dat directory inside my directory location, i.e.*
 
-```cd ~/Dat-tutorial/[long hash]
 ```
-
-*then ```dat sync``` works.*
+cd ~/Dat-tutorial/[long hash]
+dat sync
+```
+*...that works.*
 **Note close**
 ----
 
 Check the file change I made in the original machine is replicated across:
 
-```open welcome.txt
+```
+open welcome.txt
 ```
 
 Opens the .txt file I changed. And I can see my change! :tropical_fish: *[It's important to feed the kitty.]*
@@ -221,17 +222,20 @@ Opens the .txt file I changed. And I can see my change! :tropical_fish: *[It's i
 Create a homepage
 *[Command line tip: ```touch``` creates a file]*
 
-```touch index.html
+```
+touch index.html
 ```
 
 Edit index.html to add basic info (in HTML).
 See what it looks like:
-```open index.html
+```
+open index.html
 ```
 will display the file in your browser (HTML autorenders).
 
 To share this file via the web, you need to serve it via http:
-```dat share --http=$PORT_80
+```
+dat share --http=$PORT_80
 ```
 
 This will return a http://localhost:XXXXX address indicating we are hosting the file locally. But the tutorial is running in Docker, so actually we need to point people to the docker container, and that address is in welcome.txt. Typing that address into your browser, you should see your basic index page, rendered from HTML.
@@ -246,7 +250,8 @@ OH! The address I'm serving to is actually listed in the welcome.txt file — it
 And I can edit index.html on the fly, in the terminal I can see the log of changes (Dat is watching) and if I refresh the page in the browser, I can see the edited page!
 
 Note I also tried this via local machine but got this error:*
-```Archive not writable, cannot use share. Please use sync to resume download.
+```
+Archive not writable, cannot use share. Please use sync to resume download.
 ```
 *Probably because on my work laptop, my user account does nt have admin privileges.*
 **Note close**
@@ -264,26 +269,30 @@ To download the dat using Git, first I need to [install Git](https://git-scm.com
 and add the path it's in to my PATH.
 *Ssee link earlier about this! Use ```PATH=[paste in your current PATH details from the echo return]:[add new path here]``` (note the order matters, the first path listed takes priority, but that doesn't matter to me right now.*
 
-```git --version
 ```
-returns ```git version 2.15.0``` and tells me git is now successfully installed.
+git --version
+```
+returns `git version 2.15.0` and tells me git is now successfully installed.
 *Note the syntax for checking the version number is different (--version instead of -v), that's because all of these things are built and written by humans...*
 
 Ok, so now I have Git. Navigate back into /Dat-tutorial and git clone the tutorial repo:
 
-```git clone https://github.com/joehand/dat-git-example.git
+```
+git clone https://github.com/joehand/dat-git-example.git
 ```
 
 37 objects were unpacked.
-Is it there? ```ls``` lists dat-git-example in the current directory
-Navigate in ```cd dat-git-example``` and ```ls``` to see what's there.
+Is it there? `ls` lists dat-git-example in the current directory
+Navigate in `cd dat-git-example` and `ls` to see what's there.
 
-```dat.json    index.html    readme.md
+```
+dat.json    index.html    readme.md
 ````
 
 So we have the basic files in the git repo (check online at https://github.com/joehand/dat-git-example.git) but not any of the data specified in Joe's .datdownload file in that repo.
 
-```open index.html
+```
+open index.html
 ```
 And in the new browser window, we can see that Joe has set us a task. There's text and empty picture boxes — we need to use Dat to download the image files to go in these boxes. Cheeky! :cat:
 
@@ -292,7 +301,8 @@ And in the new browser window, we can see that Joe has set us a task. There's te
 *I accidentally downloaded all files not partial files....
 Back in the parent directory (/Dat-tutorial), we can connect to Joe's data files in the git repo using dat:*
 
-```dat clone ./dat-git-example
+```
+dat clone ./dat-git-example
 ```
 
 *This downloads 14 files (40MB)
@@ -306,38 +316,45 @@ Options: retrieve the trashed files and manually move them back in? Not sure I c
 
 
 in /Dat-tutorial*
-```git clone https://github.com/joehand/dat-git-example.git
+```
+git clone https://github.com/joehand/dat-git-example.git
 ```
 *Then*
-```cd dat-git-example
+```
+cd dat-git-example
 ```
 *and*
-```open index.html
+```
+open index.html
 ```
 *to display the page with missing cat pics in my browser. Yup, they're still missing.
 
 Go back up one to parent directory (```cd ..```) and*
-```dat clone ./dat-git-example --empty
+```
+dat clone ./dat-git-example --empty
 ```
 *IT WORKED THIS TIME! (Why didn't it last time? Curious...)*
 **Note close**
 ----
 
 It returns:
-```Dat successfully created in empty mode. Download files using pull or sync.
+```
+Dat successfully created in empty mode. Download files using pull or sync.
 ```
 
 Retrieve the base files specified in Joe's .datdownload:
-```dat sync ./dat-git-example
+```
+dat sync ./dat-git-example
 ```
 
 3 files (7.6MB) downloaded
 
-Check they're there: ```cd dat-git-example && ls```
+Check they're there: `cd dat-git-example && ls`
 *(Command line note: && combines commands so you can do this all in one line)*
 
 We have
-```cat-1.jpg	cat-2.jpg	dat.json	index.html	readme.md
+```
+cat-1.jpg	cat-2.jpg	dat.json	index.html	readme.md
 ```
 
 And Joe's  .datdownload specified:
@@ -351,7 +368,8 @@ Let's refresh the cat page in my browser. And now we have the first two kitty pi
 
 **How do I get the rest of the pics?**
 This isn't in the tutorial, but worth a play... Aha! Just do
-```dat clone ./dat-git-example
+```
+dat clone ./dat-git-example
 ````
 without the --empty. That downloads all 14 files.
 Refresh the browser window and BINGO. Mischief managed. :dizzy:
@@ -366,13 +384,13 @@ Remember the basic webpage we created earlier on (points 4 & 5), well we can ser
 
 [Install Beaker](https://beakerbrowser.com/docs/install/).
 
-The tutorial says I can simply paste my secret dat:// link into Beaker Browser and it should work. But it doesn't. :exclamation:**User note** Aha, I need to reopen my dat connection! **Note close**
+The tutorial says I can simply paste my secret dat:// link into Beaker Browser and it should work. But it doesn't. :exclamation:**User note** *Aha, I need to reopen my dat connection!* **Note close**
 
-So in the virtual machine on the tutorial ```dat share``` to open the connection and then that dat link opens up my basic webpage (index.html) in Beaker.
+So in the virtual machine on the tutorial `dat share` to open the connection and then that dat link opens up my basic webpage (index.html) in Beaker.
 
 ![My basic webpage on Beaker](https://github.com/npscience/Learning-Dat-and-Beaker/tree/npscience-initial/dat-tutorial-screenshots/dat-tutorial-website-via-Beaker.png)
 
-And if I open a dat connection using ```dat share``` from my local terminal, in the directory that now has both the tutorial docs AND Joe's git example, I get a simple webpage with links to both of these directories. Clicking on the directories takes me to the index.html for each (my basic website and Joe's cat pictures).
+And if I open a dat connection using `dat share` from my local terminal, in the directory that now has both the tutorial docs AND Joe's git example, I get a simple webpage with links to both of these directories. Clicking on the directories takes me to the index.html for each (my basic website and Joe's cat pictures).
 
 ![My Dat-tutorial directory on Beaker](https://github.com/npscience/Learning-Dat-and-Beaker/tree/npscience-initial/dat-tutorial-screenshots/dat-tutorial-website-via-Beaker.png)
 
@@ -383,7 +401,8 @@ When I close the dat connections (local and virtual), both dat links persist on 
 For this, I am creating a fake dataset.
 
 In /Dat-tutorial directory, create a new .csv and open it
-```touch testdata.csv && open testdata.csv
+```
+touch testdata.csv && open testdata.csv
 ```
 Add columns{ID,Measure1,Measure2}
 Add fake entries
@@ -393,10 +412,12 @@ Add fake entries
 Save
 
 Now to turn my current directory into a dat folder:
-```dat create
+```
+dat create
 ```
 This returns:
-```Welcome to dat program!
+```
+Welcome to dat program!
 You can turn any folder on your computer into a Dat.
 A Dat is a folder with some magic.
 
@@ -412,7 +433,8 @@ Title:
 ```
 So I am prompted to add some simple metadata for my testdata.csv...
 
-```Title: Testdata
+```
+Title: Testdata
 Description:  Test data created for the dat tutorial. These are not real data.
 
 Created empty Dat in /Users/naomipenfold/Dat-tutorial/research-data/.dat
@@ -428,10 +450,12 @@ dat://....shhhh-this-is-secret.....
 Now let's see if I can share this file with someone, e.g. in the virtual machine in the tutorial...
 
 In my local machine (where my testdata file is), I open a dat connection:
-```dat share
+```
+dat share
 ```
 In the virtual machine (tutorial):
-```dat clone dat://...[my secret link]...
+```
+dat clone dat://...[my secret link]...
 ```
 ----
 :exclamation:**User note**
@@ -441,7 +465,8 @@ Ok now I navigate to my research-data directory, run ```dat share``` and then in
 **Note close**
 ----
 
-```Cloning: 2 files (248 B)                                                     
+```
+Cloning: 2 files (248 B)                                                     
 
 2 connections | Download 254 B/s Upload 0 B/s
 ```
@@ -462,24 +487,28 @@ You can install it from https://datproject.org/install for Mac or Linux (Windows
 
 Now this sounds TASTY :eyes: Apparently, we are going to download the flu virus genome from [NCBI](https://www.ncbi.nlm.nih.gov/) with [Bionode](https://www.bionode.io/) and import it into Dat!
 
-In /Dat-tutorial, create new folder called 'influenza' and navigate into it ```mkdir influenza && cd influenza```
+In /Dat-tutorial, create new folder called 'influenza' and navigate into it `mkdir influenza && cd influenza`
 In this folder, install [bionode-ncbi](https://doc.bionode.io/#bionode-ncbi), a package that "takes a database name and a query term. Returns the metadata [from NCBI]".
 
-```npm install bionode-ncbi
+```
+npm install bionode-ncbi
 ```
 
 A couple of errors (Bruno, see the note at the end), but installed.
-```+ bionode-ncbi@2.0.1
+```
++ bionode-ncbi@2.0.1
 added 244 packages in 14.276s
 ```
 
 Create a script.js
 
-```touch script.js && open script.js
+```
+touch script.js && open script.js
 ```
 
 Script.js:
-```var Dat = require('dat')
+```
+var Dat = require('dat')
 var Bionode = require('bionode-ncbi')
 
 Dat('.', function (err, dat) {
@@ -495,7 +524,8 @@ Dat('.', function (err, dat) {
 ```
 
 Run this
-```node script.js
+```
+node script.js
 ```
 
 :exclamation: **Error: Cannot find module 'dat'**
@@ -522,7 +552,8 @@ Now... MUSIC BREAK :dancer: and share this documentation :ledger:
 **User note for Bruno**
 I got some errors/warnings when installing bionode:
 
-```npm WARN saveError ENOENT: no such file or directory, open '/Users/naomipenfold/Dat-tutorial/influenza/package.json'
+```
+npm WARN saveError ENOENT: no such file or directory, open '/Users/naomipenfold/Dat-tutorial/influenza/package.json'
 npm notice created a lockfile as package-lock.json. You should commit this file.
 npm WARN enoent ENOENT: no such file or directory, open '/Users/naomipenfold/Dat-tutorial/influenza/package.json'
 npm WARN influenza No description
