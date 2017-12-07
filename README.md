@@ -1,6 +1,6 @@
 # Learning Dat and Beaker
 
-This repository contains my notes as I learnt about [Dat](https://datproject.org) and [Beaker]() — tools for creating and sharing files through a decentralised p2p infrastructure.
+This repository contains my notes as I learnt about [Dat](https://datproject.org) and [Beaker](https://beakerbrowser.com) — tools for creating and sharing files through a decentralised p2p infrastructure.
 
 ## My goals
 - [WIP] To understand how Dat works and the benefit it brings over sharing research data via online repositories on the web (with DOIs pointing to landing pages via HTTP)
@@ -23,4 +23,4 @@ This repository contains my notes as I learnt about [Dat](https://datproject.org
 ## What about you?
 This content is free to read, laugh at or with, and share.
 
-CC-BY Naomi Penfold [License]()
+CC-BY Naomi Penfold [License](https://github.com/npscience/Learning-Dat-and-Beaker/blob/npscience-initial/LICENSE.md)
