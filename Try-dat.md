@@ -318,7 +318,7 @@ dat clone ./dat-git-example
 without the --empty. That downloads all 14 files.
 Refresh the browser window and BINGO. Mischief managed. :dizzy:
 
-![Completing the cats in Joe's game](https://github.com/npscience/Learning-Dat-and-Beaker/tree/npscience-initial/dat-tutorial-screenshots/dat-tutorial-Joe-git-website-local.png)
+![dat-tutorial-Joe-git-website-local](img/dat-tutorial-Joe-git-website-local.png)
 
 *Cat-10 reflects how smug I feel right now.*
 
@@ -334,11 +334,11 @@ The tutorial says I can simply paste my secret dat:// link into Beaker Browser a
 
 So in the virtual machine on the tutorial `dat share` to open the connection and then that dat link opens up my basic webpage (index.html) in Beaker.
 
-![My basic webpage on Beaker](https://github.com/npscience/Learning-Dat-and-Beaker/tree/npscience-initial/dat-tutorial-screenshots/dat-tutorial-website-via-Beaker.png)
+![dat-tutorial-website-via-Beaker](img/dat-tutorial-website-via-Beaker.png)
 
 And if I open a dat connection using `dat share` from my local terminal, in the directory that now has both the tutorial docs AND Joe's git example, I get a simple webpage with links to both of these directories. Clicking on the directories takes me to the index.html for each (my basic website and Joe's cat pictures).
 
-![My Dat-tutorial directory on Beaker](https://github.com/npscience/Learning-Dat-and-Beaker/tree/npscience-initial/dat-tutorial-screenshots/dat-tutorial-website-via-Beaker.png)
+![dat-tutorial-website-via-Beaker](img/dat-tutorial-website-via-Beaker.png)
 
 When I close the dat connections (local and virtual), both dat links persist on Beaker. This is something to watch about p2p — once it's out there, it's out there. Once a peer has the data, you can't wipe it from history.
 
@@ -415,7 +415,7 @@ Cloning: 2 files (248 B)
 
 My tutorial directory now has my research-data dat directory, complete with the dat.json and testdata.csv.
 
-![I can see my test data in the virtual machine in my browser](https://github.com/npscience/Learning-Dat-and-Beaker/tree/npscience-initial/dat-tutorial-screenshots/dat-tutorial-testdata-in-virtual-folder.png)
+![dat-tutorial-testdata-in-virtual-folder](img/dat-tutorial-testdata-in-virtual-folder.png)
 
 Don't forget to close the dat connection from the local terminal now.
 
