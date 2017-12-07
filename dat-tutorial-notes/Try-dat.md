@@ -41,7 +41,8 @@ In order to be able to call these packages from the terminal, I needed to check 
 
 Open Terminal in Mac.
 type
-``echo $PATH``
+`` echo $PATH
+``
 returns
 ``/Users/.../...:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:...
 ``
