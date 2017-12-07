@@ -41,11 +41,10 @@ In order to be able to call these packages from the terminal, I needed to check 
 
 Open Terminal in Mac.
 type
-```echo $PATH
-```
+``echo $PATH``
 returns
-```/Users/.../...:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:...
-```
+``/Users/.../...:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:...
+``
 *(Some paths obscured)*
 
 As you can see, there is a list of paths each separated by : and /usr/local/bin is there. So we're all good. I can call node and npm from the terminal.
