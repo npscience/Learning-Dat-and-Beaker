@@ -174,7 +174,7 @@ Right let's try spinning up the local server again.
 So the installation guide for minimo says to copy the config.toml from the examplesite folder into the site folder and go from there. Did that and -->
 Voila, we have a basic site!
 
-![My Hugo blogsite](img/Hugo-minimo-home.png)
+![My Hugo blogsite](img/Hugo-minimo-homepage.png)
 
 And my first post...
 
