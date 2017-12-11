@@ -5,7 +5,7 @@ This repository contains my notes as I learnt about [Dat](https://datproject.org
 ## My goals
 
 **Dat**
-- [ ] **WIP** To understand how Dat works and the benefit it brings over sharing research data via online repositories on the web (with DOIs pointing to landing pages via HTTP)
+- [ ] **WIP** To understand how Dat works and the benefit it brings over sharing research data via online repositories on the web (with DOIs pointing to landing pages via HTTP). See the [Dat whitepaper](https://github.com/datproject/docs/blob/master/papers/dat-paper.md)
 - [x] Learn how to use Dat ![Try-dat:success badge](https://img.shields.io/badge/Try--dat-success-green.svg) [Notes](/Try-dat.md)
 
 **Beaker**
